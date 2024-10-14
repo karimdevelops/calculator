@@ -43,7 +43,8 @@ body {
   font-size: 3rem;
 }
 
-#calculator #calcOp button {
+#calculator #calcOp button,
+button#other {
   background-color: #f4ce14;
 }
 
