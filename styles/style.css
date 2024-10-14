@@ -1,5 +1,5 @@
 body {
-  background: #1b1b1b;
+  background-color: #1b1b1b;
   color: #eeeeed;
   min-height: 90vh;
   display: flex;
@@ -11,7 +11,14 @@ body {
 #calcNum {
   display: flex;
   flex-wrap: wrap;
-  width: 25rem;
+  width: 21rem;
+}
+
+#display {
+  background-color: #eeeeed;
+  color: #1b1b1b;
+  height: 8rem;
+  border: 0.5rem solid palevioletred;
 }
 
 #calculator button {
