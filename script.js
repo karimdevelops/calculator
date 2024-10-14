@@ -1,4 +1,4 @@
-let allOperations = ["+", "-", "*", "/"];
+let allOperations = ["+", "-", "x", "÷"];
 let other = [".", "="];
 let calculatorDiv = document.querySelector("#calculator");
 let calcNumDiv = document.createElement("div");
@@ -81,10 +81,10 @@ function operation(firstOperand, secondOperand, arithmeticOp) {
     case "-":
       return subtract(firstOperand, secondOperand);
       break;
-    case "*":
+    case "x":
       return multiply(firstOperand, secondOperand);
       break;
-    case "/":
+    case "÷":
       return divide(firstOperand, secondOperand);
       break;
 
