@@ -1,5 +1,5 @@
 body {
-  background-color: #1b1b1b;
+  background-color: #45474b;
   color: #eeeeed;
   font-family: Arial, Helvetica, sans-serif;
   min-height: 90vh;
@@ -22,16 +22,22 @@ body {
 #display {
   justify-content: end;
   align-items: end;
-  background-color: #eeeeed;
+  background-color: #f5f7f8;
   color: #1b1b1b;
   padding: 0rem 1rem;
   font-size: 3rem;
   height: 8rem;
-  border: 0.5rem solid palevioletred;
 }
 
 #calculator button {
+  border: 0.1rem solid black;
+  background-color: #f4ce14;
+  color: #495e57;
   padding: 1rem 0rem;
   width: 7rem;
   font-size: 3rem;
+}
+
+#calculator button:hover {
+  background-color: khaki;
 }
