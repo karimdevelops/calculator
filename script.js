@@ -18,6 +18,7 @@ for (let i = 9; i >= 0; i--) {
 
 other.forEach((op) => {
   let other = document.createElement("button");
+  if (op == "=") other.addEventListener("click", calc);
   other.setAttribute("id", "other");
   other.innerText = op;
   calcNumDiv.appendChild(other);
@@ -31,12 +32,29 @@ allOperations.forEach((op) => {
 });
 
 function updateDisplay(e) {
-  display.textContent += e.target.innerText;
+  let text = e.target.innerText;
+  display.textContent += text;
+  if (allOperations.includes(text)) {
+    arithmeticOp = text;
+  } else if (firstOperand == "") {
+    firstOperand = +text;
+  } else {
+    secondOperand = +text;
+  }
 }
 
-let firstOperand;
-let secondOperand;
-let arithOperator;
+function calc() {
+  display.textContent = "";
+  let result = operation(firstOperand, secondOperand, arithmeticOp);
+  firstOperand = "";
+  secondOperand = "";
+  arithmeticOp = "";
+  display.textContent = result;
+}
+
+let firstOperand = "";
+let secondOperand = "";
+let arithmeticOp = "";
 
 function add(x, y) {
   return x + y;
@@ -54,8 +72,8 @@ function divide(x, y) {
   return x / y;
 }
 
-function operator(firstOperand, secondOperand, arithOperator) {
-  switch (arithOperator) {
+function operation(firstOperand, secondOperand, arithmeticOp) {
+  switch (arithmeticOp) {
     case "+":
       return add(firstOperand, secondOperand);
       break;
