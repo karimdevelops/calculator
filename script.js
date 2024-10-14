@@ -1,3 +1,7 @@
+let firstOperand;
+let secondOperand;
+let arithOperator;
+
 function add(x, y) {
   return x + y;
 }
