@@ -36,16 +36,16 @@ function updateDisplay(e) {
   display.textContent += text;
   if (allOperations.includes(text)) {
     arithmeticOp = text;
-  } else if (firstOperand == "") {
-    firstOperand = +text;
+  } else if (arithmeticOp == "") {
+    firstOperand += text;
   } else {
-    secondOperand = +text;
+    secondOperand += text;
   }
 }
 
 function calc() {
   display.textContent = "";
-  let result = operation(firstOperand, secondOperand, arithmeticOp);
+  let result = operation(+firstOperand, +secondOperand, arithmeticOp);
   firstOperand = result;
   secondOperand = "";
   arithmeticOp = "";
