@@ -1,3 +1,13 @@
+let calculatorDiv = document.querySelector("#calculator");
+let calcNumDiv = document.createElement("div");
+calcNumDiv.setAttribute("id", "calcNum");
+calculatorDiv.appendChild(calcNumDiv);
+
+for (let i = 9; i >= 0; i--) {
+  let numDiv = document.createElement("button");
+  numDiv.innerText = i;
+  calcNumDiv.appendChild(numDiv);
+}
 let firstOperand;
 let secondOperand;
 let arithOperator;

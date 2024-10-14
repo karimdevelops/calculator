@@ -1,3 +1,21 @@
 body {
   background: #1b1b1b;
+  color: #eeeeed;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calcNum {
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
+}
+
+#calculator button {
+  padding: 1rem 0rem;
+  width: 7rem;
+  font-size: 3rem;
 }
