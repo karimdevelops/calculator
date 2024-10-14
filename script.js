@@ -46,10 +46,11 @@ function updateDisplay(e) {
 function calc() {
   display.textContent = "";
   let result = operation(firstOperand, secondOperand, arithmeticOp);
-  firstOperand = "";
+  firstOperand = result;
   secondOperand = "";
   arithmeticOp = "";
   display.textContent = result;
+  resultState = true;
 }
 
 let firstOperand = "";
