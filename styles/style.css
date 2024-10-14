@@ -9,9 +9,15 @@ body {
   align-items: center;
 }
 
+#calculator,
 #display,
-#calcNum {
+#calcNum,
+#calcOp {
   display: flex;
+}
+
+#calcOp {
+  flex-direction: column;
 }
 
 #calcNum {
@@ -31,11 +37,14 @@ body {
 
 #calculator button {
   border: 0.1rem solid black;
-  background-color: #f4ce14;
   color: #495e57;
   padding: 1rem 0rem;
   width: 7rem;
   font-size: 3rem;
+}
+
+#calculator #calcOp button {
+  background-color: #f4ce14;
 }
 
 #calculator button:hover {

@@ -1,8 +1,12 @@
+let allOperations = ["+", "-", "*", "/"];
 let calculatorDiv = document.querySelector("#calculator");
 let calcNumDiv = document.createElement("div");
+let operationsDiv = document.createElement("div");
 let display = document.querySelector("#display");
+operationsDiv.setAttribute("id", "calcOp");
 calcNumDiv.setAttribute("id", "calcNum");
 calculatorDiv.appendChild(calcNumDiv);
+calculatorDiv.appendChild(operationsDiv);
 
 for (let i = 9; i >= 0; i--) {
   let numDiv = document.createElement("button");
@@ -11,8 +15,15 @@ for (let i = 9; i >= 0; i--) {
   calcNumDiv.appendChild(numDiv);
 }
 
+allOperations.forEach((op) => {
+  let opDiv = document.createElement("button");
+  opDiv.innerText = op;
+  opDiv.addEventListener("click", updateDisplay);
+  operationsDiv.appendChild(opDiv);
+});
+
 function updateDisplay(e) {
-  display.textContent = e.target.innerText;
+  display.textContent += e.target.innerText;
 }
 
 let firstOperand;
