@@ -16,7 +16,7 @@ backspaceBut.addEventListener("click", remove);
 
 for (let i = 9; i >= 0; i--) {
   let numDiv = document.createElement("button");
-  numDiv.addEventListener("click", updateDisplay);
+  numDiv.addEventListener("click", updateVal);
   numDiv.innerText = i;
   calcNumDiv.appendChild(numDiv);
 }
@@ -32,19 +32,29 @@ other.forEach((op) => {
 allOperations.forEach((op) => {
   let opButton = document.createElement("button");
   opButton.innerText = op;
-  opButton.addEventListener("click", updateDisplay);
+  opButton.addEventListener("click", updateVal);
   operationsDiv.appendChild(opButton);
 });
 
-function updateDisplay(e) {
+function updateVal(e) {
   let text = e.target.innerText;
-  display.textContent += text;
   if (allOperations.includes(text)) {
     arithmeticOp = text;
   } else if (arithmeticOp == "") {
     firstOperand += text;
   } else {
     secondOperand += text;
+  }
+  updateDisplay(firstOperand, secondOperand, arithmeticOp);
+}
+
+function updateDisplay(firstOperand, secondOperand, arithmeticOp) {
+  if (arithmeticOp != "" && secondOperand == "") {
+    display.textContent = arithmeticOp;
+  } else if (secondOperand == "") {
+    display.textContent = firstOperand;
+  } else if (firstOperand != "") {
+    display.textContent = secondOperand;
   }
 }
 
@@ -63,7 +73,7 @@ function remove() {
   removeFromOperand == secondOperand
     ? (secondOperand = removeFromOperandArr)
     : (firstOperand = removeFromOperandArr);
-  display.textContent = firstOperand + arithmeticOp + secondOperand;
+  updateDisplay(firstOperand, secondOperand, arithmeticOp);
 }
 
 function calc() {
