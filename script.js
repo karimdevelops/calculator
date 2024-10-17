@@ -56,7 +56,7 @@ function clear() {
 function calc() {
   let result = operation(+firstOperand, +secondOperand, arithmeticOp);
   clear();
-  firstOperand = result;
+  firstOperand = result != ":(" ? result : "";
   display.textContent = result;
   resultState = true;
 }
@@ -78,6 +78,10 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
+  if (y == 0) {
+    clear();
+    return ":(";
+  }
   return x / y;
 }
 
