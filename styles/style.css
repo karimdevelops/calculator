@@ -12,6 +12,7 @@ body {
 .main,
 #calculator,
 #display,
+.del,
 #calcNum,
 #calcOp {
   display: flex;
@@ -40,22 +41,38 @@ body {
   height: 8rem;
 }
 
-#clear {
-  background-color: red;
+.del button {
+  flex: 1;
+  background-color: orangered;
   color: #eeeeed;
   padding: 0.5rem;
   text-align: center;
-  box-shadow: inset 0 0 0 0 orangered;
+  box-shadow: inset 0 0 0 0 red;
   transition: all 0.5s;
   border: none;
 }
 
-#clear:hover {
-  box-shadow: inset 30rem 0 0 0 orangered;
+.del button:hover {
+  box-shadow: inset 30rem 0 0 0 red;
+  animation: shake 0.1s;
 }
 
-#clear:active {
-  transform: translateY(0.2rem);
+@keyframes shake {
+  0% {
+    transform: translateX(0.1rem);
+  }
+  25% {
+    transform: translateX(0.2rem);
+  }
+  50% {
+    transform: translateX(0rem);
+  }
+  75% {
+    transform: translateX(-0.1rem);
+  }
+  100% {
+    transform: translateX(-0.2rem);
+  }
 }
 
 #calculator button {
