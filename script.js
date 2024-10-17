@@ -4,10 +4,13 @@ let calculatorDiv = document.querySelector("#calculator");
 let calcNumDiv = document.createElement("div");
 let operationsDiv = document.createElement("div");
 let display = document.querySelector("#display");
+let clearBut = document.querySelector("#clear");
 operationsDiv.setAttribute("id", "calcOp");
 calcNumDiv.setAttribute("id", "calcNum");
 calculatorDiv.appendChild(calcNumDiv);
 calculatorDiv.appendChild(operationsDiv);
+
+clearBut.addEventListener("click", clear);
 
 for (let i = 9; i >= 0; i--) {
   let numDiv = document.createElement("button");
@@ -43,12 +46,17 @@ function updateDisplay(e) {
   }
 }
 
-function calc() {
+function clear() {
   display.textContent = "";
-  let result = operation(+firstOperand, +secondOperand, arithmeticOp);
-  firstOperand = result;
+  firstOperand = "";
   secondOperand = "";
   arithmeticOp = "";
+}
+
+function calc() {
+  let result = operation(+firstOperand, +secondOperand, arithmeticOp);
+  clear();
+  firstOperand = result;
   display.textContent = result;
   resultState = true;
 }
