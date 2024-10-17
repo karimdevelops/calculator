@@ -5,12 +5,14 @@ let calcNumDiv = document.createElement("div");
 let operationsDiv = document.createElement("div");
 let display = document.querySelector("#display");
 let clearBut = document.querySelector("#clear");
+let backspaceBut = document.querySelector("#backspace");
 operationsDiv.setAttribute("id", "calcOp");
 calcNumDiv.setAttribute("id", "calcNum");
 calculatorDiv.appendChild(calcNumDiv);
 calculatorDiv.appendChild(operationsDiv);
 
 clearBut.addEventListener("click", clear);
+backspaceBut.addEventListener("click", remove);
 
 for (let i = 9; i >= 0; i--) {
   let numDiv = document.createElement("button");
@@ -51,6 +53,17 @@ function clear() {
   firstOperand = "";
   secondOperand = "";
   arithmeticOp = "";
+}
+
+function remove() {
+  let removeFromOperand = secondOperand != "" ? secondOperand : firstOperand;
+  removeFromOperandArr = removeFromOperand.split("");
+  removeFromOperandArr.splice(-1, 1);
+  removeFromOperandArr = removeFromOperandArr.join("");
+  removeFromOperand == secondOperand
+    ? (secondOperand = removeFromOperandArr)
+    : (firstOperand = removeFromOperandArr);
+  display.textContent = firstOperand + arithmeticOp + secondOperand;
 }
 
 function calc() {
