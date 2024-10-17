@@ -58,7 +58,6 @@ function calc() {
   clear();
   firstOperand = result != ":(" ? result : "";
   display.textContent = result;
-  resultState = true;
 }
 
 let firstOperand = "";
@@ -89,17 +88,12 @@ function operation(firstOperand, secondOperand, arithmeticOp) {
   switch (arithmeticOp) {
     case "+":
       return add(firstOperand, secondOperand);
-      break;
     case "-":
       return subtract(firstOperand, secondOperand);
-      break;
     case "x":
       return multiply(firstOperand, secondOperand);
-      break;
     case "÷":
       return divide(firstOperand, secondOperand);
-      break;
-
     default:
       break;
   }
