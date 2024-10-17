@@ -38,11 +38,11 @@ allOperations.forEach((op) => {
 
 function updateVal(e) {
   let text = e.target.innerText;
-  if (allOperations.includes(text)) {
+  if (allOperations.includes(text) && secondOperand == "") {
     arithmeticOp = text;
   } else if (arithmeticOp == "") {
     firstOperand += text;
-  } else {
+  } else if (!allOperations.includes(text)) {
     secondOperand += text;
   }
   updateDisplay(firstOperand, secondOperand, arithmeticOp);
