@@ -24,6 +24,7 @@ for (let i = 9; i >= 0; i--) {
 other.forEach((op) => {
   let other = document.createElement("button");
   if (op == "=") other.addEventListener("click", calc);
+  else if (op == ".") other.addEventListener("click", addDeci);
   other.setAttribute("id", "other");
   other.innerText = op;
   calcNumDiv.appendChild(other);
@@ -67,13 +68,24 @@ function clear() {
 
 function remove() {
   let removeFromOperand = secondOperand != "" ? secondOperand : firstOperand;
-  removeFromOperandArr = removeFromOperand.split("");
+  let removeFromOperandArr = removeFromOperand.split("");
   removeFromOperandArr.splice(-1, 1);
   removeFromOperandArr = removeFromOperandArr.join("");
   removeFromOperand == secondOperand
     ? (secondOperand = removeFromOperandArr)
     : (firstOperand = removeFromOperandArr);
   updateDisplay(firstOperand, secondOperand, arithmeticOp);
+}
+
+function addDeci() {
+  let addToOperand = secondOperand != "" ? secondOperand : firstOperand;
+  let addDeciToOperand = addToOperand + ".";
+  if (!addToOperand.includes(".")) {
+    addToOperand == secondOperand
+      ? (secondOperand = addDeciToOperand)
+      : (firstOperand = addDeciToOperand);
+    updateDisplay(firstOperand, secondOperand, arithmeticOp);
+  }
 }
 
 function calc() {
