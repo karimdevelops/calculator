@@ -116,7 +116,7 @@ function divide(x, y) {
     clear();
     return ":(";
   }
-  return x / y;
+  return Math.round((x / y) * 1000) / 1000;
 }
 
 function operation(firstOperand, secondOperand, arithmeticOp) {
